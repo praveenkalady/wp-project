@@ -10,14 +10,14 @@
 <body>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <div class="container">
-        <a class="navbar-brand" href="/">TIRUR INFO BUSINESS DIRECTORY</a>
+        <a class="navbar-brand" href="index.html">TIRUR INFO BUSINESS DIRECTORY</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="menu">
             <ul class="navbar-nav ml-auto">
               <li class="nav-item active">
-                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="index.html">Home</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="register.html">Register</a>
@@ -25,14 +25,14 @@
               <li class="nav-item">
                 <a class="nav-link" href="login.html">Login</a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item active">
                 <a class="nav-link" href="view.php">View</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Update</a>
+                <a class="nav-link" href="update.php">Update</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Logout</a>
+                <a class="nav-link" href="logout.php">Logout</a>
               </li>
               </ul>
             </div>
@@ -56,12 +56,37 @@
   <tbody>
 <tr>
     <?php
-
-     echo "<td>one</td>";
-     echo "<td>two</td>";
-     echo "<td>Three</td>";
-     echo "<td>Five</td>";
-     echo "<td>six</td>";
+     session_start();
+     $uid = $_SESSION["userid"];
+     if($uid){
+      $con = mysql_connect("localhost","root","");
+      if(!$con){
+        die("Could not connect to database".mysql_error());
+      } else {
+       mysql_select_db("tirurinfo",$con);
+       $sql = "SELECT * FROM  shop WHERE userid='$uid'";
+       $result = mysql_query($sql,$con);
+       if($row = mysql_fetch_array($result)){
+         echo "<td>";
+         echo $row["shopid"];
+         echo "</td>";
+         echo "<td>";
+         echo $row["shopname"];
+         echo "</td>";
+         echo "<td>";
+         echo $row["category"];
+         echo "</td>";
+         echo "<td>";
+         echo $row["place"];
+         echo "</td>";
+         echo "<td>";
+         echo $row["mobile"];
+         echo "</td>";
+       }
+      }
+     } else {
+       echo "<p class='text-center lead text-danger'>You need to authenticate first.</p>";
+     }
     ?>
 </tr>
   </tbody>

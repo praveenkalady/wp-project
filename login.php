@@ -2,8 +2,6 @@
     $username = $_POST["username"];
     $password = $_POST["password"];
     $con = mysql_connect("localhost","root","");
-    echo $username;
-    echo $password;
     if(!$con){
         die("Could not connect to database".mysql_error());   
     } else {
@@ -13,7 +11,12 @@
         if ($row = mysql_fetch_array($result)) {
             session_start();
             $_SESSION['userid'] = $row['userid'];
-            echo $_SESSION['userid'];
+            echo "
+            <script type=\"text/javascript\">
+             window.alert('User Login Successful !');
+             window.location.href='/wp-project/view.php';
+            </script>
+            ";
           }
     }
 
