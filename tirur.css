@@ -1,0 +1,8 @@
+#landing {
+    background: url('./img/tirur.jpg') center no-repeat;
+    width: 100%;
+    height:100vh;
+}
+.pd{
+    padding-top: 20rem;
+}
