@@ -77,6 +77,9 @@
                             <div class="form-group">
                                 <label for="category">Category</label>
                                 <select value="<?=$category?>" class="form-control" name="category" >
+                                <option value="none" selected disabled hidden> 
+                                  Select your Category
+                                  </option> 
                                     <option value="vegitable">Vegitable</option>
                                     <option value="Grocery">Grocery</option>
                                     <option value="Woods">Woods</option>
@@ -85,8 +88,16 @@
                             </div>
                             <div class="form-group">
                                 <label for="location">Location</label>
-                                <input type="text" value="<?=$place?>" name="place"  class="form-control" placeholder="Enter your location">
-                            </div>
+                                <select value="<?=$place?>" class="form-control" name="place" >
+                                <option value="none" selected disabled hidden> 
+                                  Select your location
+                                  </option> 
+                                    <option value="Tirur">Tirur</option>
+                                    <option value="BP Angadi">BP Angadi</option>
+                                    <option value="Karathoor">Karathoor</option>
+                                    <option value="Kolupalam">Kolupalam</option>
+                                </select>
+                          </div>
                             <div class="form-group">
                                 <label for="mobile">Mobile Number</label>
                                 <input type="number" name="mobile" value="<?=$mobile?>"  class="form-control" placeholder="Enter your mobile number">

@@ -54,6 +54,9 @@
                         <div class="form-group">
                             <label for="category">Category</label>
                             <select class="form-control" name="category" >
+                              <option value="none" selected disabled hidden> 
+                                Select your location
+                                </option>
                                 <option value="vegitable">Vegitable</option>
                                 <option value="Grocery">Grocery</option>
                                 <option value="Woods">Woods</option>
@@ -65,8 +68,16 @@
                             <input type="password" name="password"  class="form-control" placeholder="Enter your password">
                         </div>
                         <div class="form-group">
-                            <label for="location">Location</label>
-                            <input type="text" name="place"  class="form-control" placeholder="Enter your location">
+                          <label for="location">Location</label>
+                          <select  class="form-control" name="place" >
+                            <option value="none" selected disabled hidden> 
+                              Select your location
+                              </option> 
+                              <option value="Tirur">Tirur</option>
+                              <option value="BP Angadi">BP Angadi</option>
+                              <option value="Karathoor">Karathoor</option>
+                              <option value="Kolupalam">Kolupalam</option>
+                          </select>
                         </div>
                         <div class="form-group">
                             <label for="mobile">Mobile Number</label>
